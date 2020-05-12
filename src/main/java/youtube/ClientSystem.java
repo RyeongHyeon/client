@@ -1,5 +1,7 @@
 package youtube;
 
+import com.fasterxml.jackson.core.JsonProcessingException;
+import com.fasterxml.jackson.databind.ObjectMapper;
 import javax.persistence.*;
 import org.springframework.beans.BeanUtils;
 import java.util.List;
@@ -23,8 +25,8 @@ public class ClientSystem {
 
 
         CheckedRefund checkedRefund = new CheckedRefund();
-        checkedRefund.setClientId("##번 고객");
-        checkedRefund.setTotalView(300000);
+        checkedRefund.setClientId(clientId);
+        checkedRefund.setTotalView(totalView);
         BeanUtils.copyProperties(this, checkedRefund);
         checkedRefund.publishAfterCommit();
         System.out.print(clientId+"님"+totalView+"조회수 환급신청함");
