@@ -35,7 +35,7 @@ public class ClientSystem {
         BeanUtils.copyProperties(this, checkedRefund);
 
         checkedRefund.publishAfterCommit();
-        System.out.print(clientId+"님"+totalView+"조회수 환급신청함");
+        System.out.print(clientId+"님"+totalView+"조회수 환급신청함123123");
     }
 
 

@@ -26,12 +26,15 @@ public class PolicyHandler{
             ClientSystem cs = new ClientSystem();
             cs.clientId = editedChannel.getClientId();
             cs.totalView = editedChannel.getTotalView();
-            clientSystemRepository.findById(editedChannel.getClientId()).ifPresent(
-                    clientSystem -> {
-                        clientSystem.setTotalView(editedChannel.getTotalView()); // 조회수 세팅
-                        clientSystemRepository.save(clientSystem);
-                    }
-                    );
+            if(editedChannel.getClientId() != null)
+            {
+                clientSystemRepository.findById(editedChannel.getClientId()).ifPresent(
+                        clientSystem -> {
+                            clientSystem.setTotalView(editedChannel.getTotalView()); // 조회수 세팅
+                            clientSystemRepository.save(clientSystem);
+                        }
+                );
+            }
 
         }
         else
