@@ -14,15 +14,16 @@ public class PolicyHandler{
     public void wheneverEditedChannel_CheckRefund(@Payload EditedChannel editedChannel){
 
 
-        ClientSystem.clientId = EditedChannel.getClientId();
-        ClientSystem.totalView = EditeChannel.getTotalView();
         if(editedChannel.isMe()){
             System.out.println("##### listener CheckRefund : " + editedChannel.toJson());
         }
         else
         {
-            if(clientId != null && totalView != null)
-            System.out.println(clientId+"회원님의 조회수는" +totalView+"입니다.");
+            if(editedChannel.getClientID() != null)
+            System.out.println(editedChannel.getClientID()+"회원님의 조회수는" +editedChannel.getTotalView()+"입니다.");
+            ClientSystem cs = new ClientSystem();
+            cs.clientId = editedChannel.getClientID();
+            cs.totalView = editedChannel.getTotalView();
 
         }
     }
