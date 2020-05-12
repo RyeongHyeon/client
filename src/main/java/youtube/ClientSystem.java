@@ -28,8 +28,6 @@ public class ClientSystem {
         createdCustomer.publishAfterCommit();
 
         CheckedRefund checkedRefund = new CheckedRefund();
-        checkedRefund.setClientId(clientId);
-        checkedRefund.setTotalView(totalView);
         BeanUtils.copyProperties(this, checkedRefund);
 
         checkedRefund.publishAfterCommit();

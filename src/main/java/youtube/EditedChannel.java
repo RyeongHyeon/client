@@ -6,6 +6,7 @@ public class EditedChannel extends AbstractEvent {
     private Long channelId;
     private Long clientID;
     private Long videoId;
+    private int totalView;
 
     public String getChannelName() {
         return channelName;
@@ -25,6 +26,7 @@ public class EditedChannel extends AbstractEvent {
         return clientID;
     }
 
+
     public void setClientId(Long clientID) {
         this.clientID = clientID;
     }
@@ -38,5 +40,17 @@ public class EditedChannel extends AbstractEvent {
 
     public void setClientID(Long clientID) {
         this.clientID = clientID;
+    }
+
+    public Long getClientID() {
+        return clientID;
+    }
+
+    public int getTotalView() {
+        return totalView;
+    }
+
+    public void setTotalView(int totalView) {
+        this.totalView = totalView;
     }
 }
