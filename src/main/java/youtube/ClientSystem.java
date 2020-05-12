@@ -18,7 +18,7 @@ public class ClientSystem {
     @PrePersist
     public void onPrePersist(){
         CreatedCustomer createdCustomer = new CreatedCustomer();
-        createdCustomer.setClientId("##번 고객");
+        createdCustomer.setClientId(clientId);
 
         BeanUtils.copyProperties(this, createdCustomer);
         createdCustomer.publishAfterCommit();
