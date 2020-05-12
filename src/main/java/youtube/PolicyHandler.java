@@ -13,6 +13,8 @@ public class PolicyHandler{
     @StreamListener(KafkaProcessor.INPUT)
     public void wheneverEditedChannel_CheckRefund(@Payload EditedChannel editedChannel){
 
+        EditedChannel.getClientId() = this.clientId;
+        EditeChannel.getTotalView() = this.totalView;
         if(editedChannel.isMe()){
             System.out.println("##### listener CheckRefund : " + editedChannel.toJson());
         }
