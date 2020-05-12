@@ -14,8 +14,8 @@ public class PolicyHandler{
     public void wheneverEditedChannel_CheckRefund(@Payload EditedChannel editedChannel){
 
 
-        EditedChannel.getClientId() = this.clientId;
-        EditeChannel.getTotalView() = this.totalView;
+        this.clientId = EditedChannel.getClientId();
+        this.totalView = EditeChannel.getTotalView()
         if(editedChannel.isMe()){
             System.out.println("##### listener CheckRefund : " + editedChannel.toJson());
         }
