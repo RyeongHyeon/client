@@ -10,6 +10,12 @@ import org.springframework.stereotype.Service;
 
 @Service
 public class PolicyHandler{
-    
+    @StreamListener(KafkaProcessor.INPUT)
+    public void wheneverEditedChannel_CheckRefund(@Payload EditedChannel editedChannel){
+
+        if(editedChannel.isMe()){
+            System.out.println("##### listener CheckRefund : " + editedChannel.toJson());
+        }
+    }
 
 }
