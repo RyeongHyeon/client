@@ -53,19 +53,4 @@ public class ClientSystem {
     public void setTotalView(Integer totalView) {
         this.totalView = totalView;
     }
-//    public Long getClientId() {
-//        return clientId;
-//    }
-//
-//    public void setClientId(Long clientId) {
-//        this.clientId = clientId;
-//    }
-//
-//    public Integer getTotalView() {
-//        return totalView;
-//    }
-//
-//    public void setTotalView(Integer totalView) {
-//        this.totalView = totalView;
-//    }
 }
