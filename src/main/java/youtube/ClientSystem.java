@@ -22,19 +22,23 @@ public class ClientSystem {
         String json = null;
 
         CreatedCustomer createdCustomer = new CreatedCustomer();
-        createdCustomer.setClientId(clientId);
 
         BeanUtils.copyProperties(this, createdCustomer);
         createdCustomer.publishAfterCommit();
 
+
+    }
+
+    @PreUpdate
+    public void onPostEdited(){
         CheckedRefund checkedRefund = new CheckedRefund();
         BeanUtils.copyProperties(this, checkedRefund);
 
         checkedRefund.publishAfterCommit();
         System.out.print(clientId+"님"+totalView+"조회수 환급신청함");
-
-
     }
+
+
 
     public Long getClientId() {
         return clientId;
