@@ -18,11 +18,9 @@ public class PolicyHandler{
 
     @StreamListener(KafkaProcessor.INPUT)
     public void wheneverEditedChannel_CheckRefund(@Payload EditedChannel editedChannel){
-
-
         if(editedChannel.isMe()){
             System.out.println("##### listener CheckRefund : " + editedChannel.toJson());
-            System.out.println(editedChannel.getClientId()+"회원님의 조회수는" +editedChannel.getTotalView()+"입니다.1");
+            System.out.println(editedChannel.getClientId()+"client's view is " +editedChannel.getTotalView());
             ClientSystem cs = new ClientSystem();
             cs.clientId = editedChannel.getClientId();
             cs.totalView += editedChannel.getTotalView();
@@ -34,16 +32,6 @@ public class PolicyHandler{
                             clientSystemRepository.save(clientSystem);
                         }
                 );
-            }
-
-        }
-        else
-        {
-            if(editedChannel.getClientId() != null){
-                System.out.println(editedChannel.getClientId()+"회원님의 조회수는" +editedChannel.getTotalView()+"입니다.2");
-                ClientSystem cs = new ClientSystem();
-                cs.clientId = editedChannel.getClientId();
-                cs.totalView = editedChannel.getTotalView();
             }
         }
     }

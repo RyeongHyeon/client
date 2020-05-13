@@ -13,12 +13,12 @@ import java.util.List;
  public class ClientSystemController {
 
 
-//@RequestMapping(value = "/",
-//        method = RequestMethod.GET,
-//        produces = "application/json;charset=UTF-8")
-//
-//public void checkRefund(HttpServletRequest request, HttpServletResponse response)
-//        throws Exception {
-//        System.out.println("##### /clientSystem/checkRefund  called #####");
-//        }
+@RequestMapping(value = "/checkRefund",
+        method = RequestMethod.POST,
+        produces = "application/json;charset=UTF-8")
+
+        public void checkRefund(HttpServletRequest request, HttpServletResponse response)
+        throws Exception {
+        System.out.println("##### /clientSystem/checkRefund  called #####");
+        }
  }

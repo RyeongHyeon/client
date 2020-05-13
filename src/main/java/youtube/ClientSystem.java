@@ -24,7 +24,7 @@ public class ClientSystem {
         CreatedCustomer createdCustomer = new CreatedCustomer();
         BeanUtils.copyProperties(this, createdCustomer);
         createdCustomer.publishAfterCommit();
-        System.out.print(clientId+"회원님 회원가입 되었습니다.");
+        System.out.println("Number "+clientId+"Client! Welcome to our U-tube!!");
 
 
     }
@@ -33,9 +33,9 @@ public class ClientSystem {
     public void onPostEdited(){
         CheckedRefund checkedRefund = new CheckedRefund();
         BeanUtils.copyProperties(this, checkedRefund);
-
+        System.out.println("Number "+clientId+" Client Applyed for a refund by " + totalView +"View.");
         checkedRefund.publishAfterCommit();
-        System.out.print(clientId+"님"+totalView+"조회수로 환급신청 되었습니다.123");
+
     }
 
 
