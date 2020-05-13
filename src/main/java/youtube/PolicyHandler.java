@@ -25,12 +25,12 @@ public class PolicyHandler{
             System.out.println(editedChannel.getClientId()+"회원님의 조회수는" +editedChannel.getTotalView()+"입니다.1");
             ClientSystem cs = new ClientSystem();
             cs.clientId = editedChannel.getClientId();
-            cs.totalView = editedChannel.getTotalView();
+            cs.totalView += editedChannel.getTotalView();
             if(editedChannel.getClientId() != null)
             {
                 clientSystemRepository.findById(editedChannel.getClientId()).ifPresent(
                         clientSystem -> {
-                            clientSystem.setTotalView(editedChannel.getTotalView()); // 조회수 세팅
+                             // 조회수 세팅
                             clientSystemRepository.save(clientSystem);
                         }
                 );
