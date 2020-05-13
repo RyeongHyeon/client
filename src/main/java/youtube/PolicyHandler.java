@@ -20,20 +20,23 @@ public class PolicyHandler{
     public void wheneverEditedChannel_CheckRefund(@Payload EditedChannel editedChannel){
         if(editedChannel.isMe()){
             System.out.println("##### listener CheckRefund : " + editedChannel.toJson());
-            System.out.println(editedChannel.getClientId()+"client's view add " +editedChannel.getTotalView());
             ClientSystem cs = new ClientSystem();
-            cs.clientId = editedChannel.getClientId();
-            cs.totalView += editedChannel.getTotalView();
-            System.out.println("client's totalview is " +cs.totalView);
+            cs.setTotalView(editedChannel.getTotalView());
+            cs.setClientId(editedChannel.getClientId());
+            System.out.println("Number "+cs.clientId+" client's totalview is " +cs.totalView);
             if(editedChannel.getClientId() != null)
             {
                 clientSystemRepository.findById(editedChannel.getClientId()).ifPresent(
                         clientSystem -> {
+                            clientSystem.setTotalView(editedChannel.getTotalView());
+                            clientSystem.setClientId(editedChannel.getClientId());
                              // 조회수 세팅
                             clientSystemRepository.save(clientSystem);
                         }
                 );
             }
+
+
         }
     }
 
