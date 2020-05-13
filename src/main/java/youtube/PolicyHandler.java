@@ -20,10 +20,11 @@ public class PolicyHandler{
     public void wheneverEditedChannel_CheckRefund(@Payload EditedChannel editedChannel){
         if(editedChannel.isMe()){
             System.out.println("##### listener CheckRefund : " + editedChannel.toJson());
-            System.out.println(editedChannel.getClientId()+"client's view is " +editedChannel.getTotalView());
+            System.out.println(editedChannel.getClientId()+"client's view add " +editedChannel.getTotalView());
             ClientSystem cs = new ClientSystem();
             cs.clientId = editedChannel.getClientId();
             cs.totalView += editedChannel.getTotalView();
+            System.out.println("client's totalview is " +cs.totalView);
             if(editedChannel.getClientId() != null)
             {
                 clientSystemRepository.findById(editedChannel.getClientId()).ifPresent(

@@ -13,7 +13,7 @@ public class ClientSystem {
     @Id
     @GeneratedValue(strategy=GenerationType.AUTO)
     public Long clientId;
-    public Integer totalView;
+    public Integer totalView = 0;
 
     @PrePersist
     public void onPrePersist(){
