@@ -22,9 +22,9 @@ public class ClientSystem {
         String json = null;
 
         CreatedCustomer createdCustomer = new CreatedCustomer();
-
         BeanUtils.copyProperties(this, createdCustomer);
         createdCustomer.publishAfterCommit();
+        System.out.print(clientId+"회원님 회원가입 되었습니다.");
 
 
     }
@@ -35,7 +35,7 @@ public class ClientSystem {
         BeanUtils.copyProperties(this, checkedRefund);
 
         checkedRefund.publishAfterCommit();
-        System.out.print(clientId+"님"+totalView+"조회수 환급신청함123123");
+        System.out.print(clientId+"님"+totalView+"조회수로 환급신청 되었습니다.123");
     }
 
 
